@@ -47,7 +47,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
       "year": "2022"
     },
     "time": "Pukul 08.00 - 09.00 WIB",
-    "address": "Jalan Balong-Garawangi, Dusun Wage RT 002/RW 001, Desa Balong, Kec. Sindangagung, Kab. Kuningan",
+    "address": "Jl Dr Sam Ratulangi 122, Sulawesi Selatan",
     "addressLocation": "Saung Wedang Rempah Berkah (WRB)"
   },
   "weddingReception": {
@@ -58,7 +58,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
       "year": "2022"
     },
     "time": "Pukul 08.00 - 09.00 WIB",
-    "address": "Jalan Balong-Garawangi, Dusun Wage RT 002/RW 001, Desa Balong, Kec. Sindangagung, Kab. Kuningan",
+    "address": "Jl Dr Sam Ratulangi 122, Sulawesi Selatan",
     "addressLocation": "Saung Wedang Rempah Berkah (WRB)"
   },
   "galleries": [
