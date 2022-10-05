@@ -15,9 +15,11 @@ npm run dev
 # or
 yarn dev
 ```
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000?to=Afif%20Makarim](http://localhost:3000?to=Afif%20Makarim) with your browser to see the result.
 
 ## Use your own data
+`https://mocki.io/v1/8ce645a5-7a2d-4a05-a45b-3b3813586ad6`
+
 ```json
 {
   "title": "Tamako & Mochizou",
