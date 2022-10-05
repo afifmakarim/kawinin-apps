@@ -9,16 +9,40 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.3.1",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "@fontsource/libre-baskerville": "^4.5.9",
+    "@fontsource/niconne": "^4.5.8",
+    "@fontsource/oooh-baby": "^4.5.8",
+    "@fontsource/open-sans": "^4.5.11",
+    "@fontsource/poly": "^4.5.10",
+    "@fontsource/poppins": "^4.5.9",
+    "@fontsource/raleway": "^4.5.10",
+    "@fontsource/rancho": "^4.5.6",
+    "axios": "^0.27.2",
+    "framer-motion": "^7.2.1",
+    "gsap": "^3.11.1",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-awesome-reveal": "^4.0.1",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-power-ups": "^2.0.1",
+    "swiper": "^8.3.2"
   },
   "devDependencies": {
     "@types/node": "18.7.15",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",
-    "eslint": "8.23.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "eslint": "^8.23.0",
     "eslint-config-next": "12.2.5",
-    "typescript": "4.8.2"
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.5",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.6",
+    "typescript": "^4.8.2"
   }
 }
