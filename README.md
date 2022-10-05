@@ -77,5 +77,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   ]
 }
 ```
+## Screenshot
+### `Modal`
+<img src="https://user-images.githubusercontent.com/28927592/194084420-7d5c5804-1085-4f15-8219-21d77741839c.jpg" alt="Landing" width="300">
 
+### `Main`
+<img src="https://user-images.githubusercontent.com/28927592/194084858-a07fe40a-dac7-4f20-ab10-d8c6e17aebf4.jpg" alt="Landing" width="300">
 
+### `Main-2`
+<img src="https://user-images.githubusercontent.com/28927592/194084979-233bb22b-2c66-48c9-bd9f-69f4c9fcf0b3.jpg" alt="Landing" width="300">
