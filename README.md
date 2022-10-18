@@ -1,34 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+Kawinin Apps - FE Personal Project
 ## Getting Started
 
-First, run the development server:
+First, setup environment variable :
+```bash
+# kawinin apps backend url
+NEXT_PUBLIC_API=http://localhost:3000/api/v1/wedding/12
+# base imageUrl
+NEXT_PUBLIC_IMAGES=http://localhost:3000/images/
+```
 
+Second, run the development server
 ```bash
 npm run dev
 # or
 yarn dev
 ```
+Open [http://localhost:3000?to=Afif%20Makarim](http://localhost:3000?to=Afif%20Makarim) with your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Use your own data
+`https://mocki.io/v1/8ce645a5-7a2d-4a05-a45b-3b3813586ad6`
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```json
+{
+  "title": "Tamako & Mochizou",
+  "weddingPhoto": "https://rojokundo.xyz/kawinin-apps/wedding-photos.jpg",
+  "grooms": {
+    "name": "Mochizou Mochimatzui",
+    "nick": "Mochizou",
+    "fatherName": "Minato Namikaze",
+    "motherName": "Kushina Uzumaki",
+    "ig": "affmakarim",
+    "photos": "https://rojokundo.xyz/kawinin-apps/grooms-1.jpg"
+  },
+  "brides": {
+    "name": "Tamako Kitashirakawa",
+    "nick": "Tamako",
+    "fatherName": "Sasuke Uchiha",
+    "motherName": "Haruno Sakura",
+    "ig": "9gag",
+    "photos": "https://rojokundo.xyz/kawinin-apps/brides-1.jpg"
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  },
+  "weddingCeremony": {
+    "dates": {
+      "day": "Senin",
+      "date": "08",
+      "month": "January",
+      "year": "2022"
+    },
+    "time": "Pukul 08.00 - 09.00 WIB",
+    "address": "Jl Dr Sam Ratulangi 122, Sulawesi Selatan",
+    "addressLocation": "Saung Wedang Rempah Berkah (WRB)"
+  },
+  "weddingReception": {
+    "dates": {
+      "day": "Senin",
+      "date": "08",
+      "month": "January",
+      "year": "2022"
+    },
+    "time": "Pukul 08.00 - 09.00 WIB",
+    "address": "Jl Dr Sam Ratulangi 122, Sulawesi Selatan",
+    "addressLocation": "Saung Wedang Rempah Berkah (WRB)"
+  },
+  "galleries": [
+    {
+      "imageUrl": "https://rojokundo.xyz/kawinin-apps/tamako-galleries-1.jpg"
+    },
+    {
+      "imageUrl": "https://rojokundo.xyz/kawinin-apps/tamako-galleries-2.jpg"
+    },
+    {
+      "imageUrl": "https://rojokundo.xyz/kawinin-apps/tamako-galleries-3.jpg"
+    },
+    {
+      "imageUrl": "https://rojokundo.xyz/kawinin-apps/tamako-galleries-4.jpg"
+    }
+  ]
+}
+```
+## Screenshot
+### `Modal`
+<img src="https://user-images.githubusercontent.com/28927592/194084420-7d5c5804-1085-4f15-8219-21d77741839c.jpg" alt="Landing" width="300">
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### `Main`
+<img src="https://user-images.githubusercontent.com/28927592/194084858-a07fe40a-dac7-4f20-ab10-d8c6e17aebf4.jpg" alt="Landing" width="300">
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### `Main-2`
+<img src="https://user-images.githubusercontent.com/28927592/194084979-233bb22b-2c66-48c9-bd9f-69f4c9fcf0b3.jpg" alt="Landing" width="300">
