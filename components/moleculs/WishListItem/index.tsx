@@ -31,7 +31,7 @@ export default function WishListItem({
       my={2}
     >
       <HStack alignItems="start">
-        <Avatar name={name} src="https://bit.ly/broken-link" size="sm" />
+        <Avatar name={name} size="sm" />
         <VStack spacing={1} alignItems="start">
           <Text fontSize="sm">{name}</Text>
           <Text fontSize="xs">{timestamp}</Text>

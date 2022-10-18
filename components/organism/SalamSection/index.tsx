@@ -8,10 +8,12 @@ import {
   HStack,
   Heading,
   Link,
+  Img,
 } from "@chakra-ui/react";
 import { Fade } from "react-awesome-reveal";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
+// import Image from "next/image";
 
 export default function SalamSection({ showNav, data }: any) {
   return (
@@ -25,7 +27,13 @@ export default function SalamSection({ showNav, data }: any) {
         <Fade>
           <Center>
             <VStack gap={4}>
-              <Image src="/salam.svg" alt="" />
+              <Img
+                src="/salam.svg"
+                alt="salam"
+                width={150}
+                height={30}
+                loading="lazy"
+              />
               <Text fontSize={12} fontFamily="Poly" color="brand.100">
                 Assalamu'alaikum Wr. Wb.
               </Text>
@@ -42,8 +50,10 @@ export default function SalamSection({ showNav, data }: any) {
               </Text>
               <HStack gap={2}>
                 <VStack>
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_IMAGES}${data.brides?.photos}`}
+                  <Img
+                    src={`${
+                      data.brides.photos && process.env.NEXT_PUBLIC_IMAGES
+                    }${data.brides.photos}`}
                     borderRadius="100%"
                     shadow="xl"
                     width="80px"
@@ -56,8 +66,10 @@ export default function SalamSection({ showNav, data }: any) {
                   style={{ color: "#7c6e63", fontSize: "1.4rem" }}
                 />
                 <VStack>
-                  <Image
-                    src={`${process.env.NEXT_PUBLIC_IMAGES}${data.grooms?.photos}`}
+                  <Img
+                    src={`${
+                      data.grooms.photos && process.env.NEXT_PUBLIC_IMAGES
+                    }${data.grooms.photos}`}
                     borderRadius="100%"
                     shadow="xl"
                     width="80px"

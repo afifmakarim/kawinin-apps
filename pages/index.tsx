@@ -12,6 +12,7 @@ import FloatNav from "../components/moleculs/Navbar/FloatNav";
 import { useIntersection } from "react-power-ups";
 import { getData } from "../services/data";
 import { WeddingTypes } from "../services/data-types";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
       fatherName: "",
       motherName: "",
       ig: "",
-      photos: [{ imageUrl: "" }],
+      photos: "",
     },
     brides: {
       name: "",
@@ -32,7 +33,7 @@ const Home: NextPage = () => {
       fatherName: "",
       motherName: "",
       ig: "",
-      photos: [{ imageUrl: "" }],
+      photos: "",
     },
     weddingCeremony: {
       address: "",
@@ -67,6 +68,11 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <Head>
+        <title>Wedding Invitation</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="Wedding Invitation Website" />
+      </Head>
       <ModalItem onClose={onClose} isOpen={isOpen} data={WeddingData} />
       <div ref={showNav}>
         <MainSection data={WeddingData} />

@@ -45,7 +45,7 @@ export default function DrawerItem({ onClose, isOpen, data }: any) {
                 height: "200px",
                 backgroundSize: "cover",
                 backgroundImage:
-                  "linear-gradient(to bottom, rgba(245, 246, 252, 0.32), rgba(0, 0, 0, 0.68)), url('/gallery/tamako-3.jpg')",
+                  "linear-gradient(to bottom, rgba(245, 246, 252, 0.32), rgba(0, 0, 0, 0.68)), url('/bg.svg')",
               }}
             >
               <VStack h="100%" color="white">

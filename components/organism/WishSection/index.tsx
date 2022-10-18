@@ -74,11 +74,11 @@ export default function WishSection() {
     <Fade>
       <Box
         sx={{
-          "background-color": "#F8E1CD",
-          "background-image": "url('/bg.svg')",
-          "background-repeat": "no-repeat",
-          "background-size": "cover",
-          "background-position": "center",
+          backgroundColor: "#F8E1CD",
+          backgroundImage: "url('/bg.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
         p={6}
         id="wish"

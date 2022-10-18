@@ -6,7 +6,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs, Autoplay } from "swiper";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Img } from "@chakra-ui/react";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
 
 export default function GallerySection({ data }: any) {

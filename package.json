@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +21,7 @@
     "@fontsource/raleway": "^4.5.10",
     "@fontsource/rancho": "^4.5.6",
     "axios": "^0.27.2",
+    "cross-env": "^7.0.3",
     "framer-motion": "^7.2.1",
     "gsap": "^3.11.1",
     "next": "12.2.5",

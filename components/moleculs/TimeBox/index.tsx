@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import BoxItem from "../../atoms/BoxItem";
 import { useCountdown } from "../../hooks/useCountDown";
 
-export default function TimeBox() {
-  const dates = new Date("October 08, 2022 10:00:00").getTime() / 1000.0;
+export default function TimeBox(props: any) {
+  const dates = new Date(props.data).getTime() / 1000.0;
   const weddingDay = parseInt(dates + "000");
   const [days, hours, minutes, seconds] = useCountdown(weddingDay);
 

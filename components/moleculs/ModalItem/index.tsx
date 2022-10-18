@@ -13,15 +13,18 @@ import {
   VStack,
   Container,
   Center,
-  Image,
+  // Image,
   Box,
   Stack,
   Heading,
+  Img,
+  chakra,
 } from "@chakra-ui/react";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
 import { FaBookOpen } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function ModalItem({ onClose, isOpen, data }: any) {
   const router = useRouter();
@@ -36,11 +39,11 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
       <ModalContent w="430px" m={0}>
         <ModalBody
           sx={{
-            "background-color": "#F8E1CD",
-            "background-image": "url('/bg.svg')",
-            "background-repeat": "no-repeat",
-            "background-size": "cover",
-            "background-position": "center",
+            backgroundColor: "#F8E1CD",
+            backgroundImage: "url('/bg.svg')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <Fade>
@@ -51,14 +54,17 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                     The Wedding of
                   </Heading>
                   <Stack direction="column" gap={4}>
-                    <Image
+                    <Img
                       boxShadow="2xl"
                       borderRadius="full"
-                      src={`${process.env.NEXT_PUBLIC_IMAGES}${data?.weddingPhoto}`}
-                      alt={data?.title}
                       objectFit="cover"
-                      width={300}
-                      height={300}
+                      src={`${
+                        data.weddingPhoto && process.env.NEXT_PUBLIC_IMAGES
+                      }${data.weddingPhoto}`}
+                      alt={data?.title}
+                      boxSize={300}
+                      sizes="50"
+                      loading="lazy"
                     />
                     <Center>
                       <Heading as="h2" size="lg">
@@ -66,16 +72,20 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                       </Heading>
                     </Center>
                     <Center>
-                      <Text fontSize="xs" align="center">
-                        Kepada Yth.
-                        <br />
-                        Bpk/Ibu/Saudara/i
-                        <br />
+                      <VStack>
+                        <Text fontSize="xs" align="center">
+                          Kepada Yth.
+                          <br />
+                          Bpk/Ibu/Saudara/i
+                          <br />
+                        </Text>
                         <Text fontSize="xl" fontWeight={600}>
                           {to}
                         </Text>
-                        di Tempat
-                      </Text>
+                        <Text fontSize="xs" align="center">
+                          di Tempat
+                        </Text>
+                      </VStack>
                     </Center>
                   </Stack>
                   <Spacer />
