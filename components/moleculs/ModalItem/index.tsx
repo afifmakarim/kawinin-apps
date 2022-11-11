@@ -25,10 +25,20 @@ import { FaBookOpen } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useAudio } from "../../hooks/useAudio";
+import { toggleMusic } from "../../../redux/music.slice";
+import { useDispatch } from "react-redux";
 
 export default function ModalItem({ onClose, isOpen, data }: any) {
   const router = useRouter();
   const { to } = router.query;
+  const dispatch = useDispatch();
+  const [] = useAudio();
+
+  const handleOpenInvitation = () => {
+    onClose();
+    dispatch(toggleMusic());
+  };
 
   return (
     <Modal onClose={onClose} size="sm" isOpen={isOpen}>
@@ -63,6 +73,8 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                       }${data.weddingPhoto}`}
                       alt={data?.title}
                       boxSize={300}
+                      w={300}
+                      h={300}
                       sizes="50"
                       loading="lazy"
                     />
@@ -92,7 +104,7 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                   <CustomPrimaryButton
                     icon={<FaBookOpen />}
                     title="Buka Undangan"
-                    onClick={onClose}
+                    onClick={handleOpenInvitation}
                     size="md"
                   />
                 </VStack>

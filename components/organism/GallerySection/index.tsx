@@ -37,11 +37,15 @@ export default function GallerySection({ data }: any) {
             {data.galleries?.map((item: any, index: any) => (
               <SwiperSlide key={index}>
                 <img
-                  style={{ borderRadius: "8px", objectFit: "cover" }}
+                  style={{
+                    borderRadius: "8px",
+                    objectFit: "cover",
+                    minHeight: "400px",
+                  }}
                   src={`${process.env.NEXT_PUBLIC_IMAGES}${item.imageUrl}`}
                   width={400}
                   height={400}
-                  alt=""
+                  alt="album"
                 />
               </SwiperSlide>
             ))}
@@ -61,11 +65,12 @@ export default function GallerySection({ data }: any) {
                     marginTop: "8px",
                     borderRadius: "8px",
                     objectFit: "cover",
+                    minHeight: "100px",
                   }}
                   src={`${process.env.NEXT_PUBLIC_IMAGES}${item.imageUrl}`}
                   width={200}
                   height={200}
-                  alt=""
+                  alt="album"
                 />
               </SwiperSlide>
             ))}

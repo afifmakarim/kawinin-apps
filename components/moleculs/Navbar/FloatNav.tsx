@@ -1,11 +1,17 @@
 import { Box, Flex, Container, useDisclosure } from "@chakra-ui/react";
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaQrcode } from "react-icons/fa";
+import { MdMusicNote, MdMusicOff } from "react-icons/md";
+import { useAudio } from "../../hooks/useAudio";
 import DrawerItem from "../DrawerItem";
 import NavbarItem from "./NavbarItem";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleMusic } from "../../../redux/music.slice";
 
 export default function FloatNav({ data }: any) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const music = useSelector((state: any) => state.music);
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -25,8 +31,12 @@ export default function FloatNav({ data }: any) {
         // left="41.5%"
         // right="50%"
       >
-        <Flex gap={2}>
+        <Flex gap={2} flexDirection="column">
           <NavbarItem icon={<FaQrcode />} onClick={onOpen} />
+          <NavbarItem
+            icon={music.isPlay ? <MdMusicOff /> : <MdMusicNote />}
+            onClick={() => dispatch(toggleMusic())}
+          />
         </Flex>
       </Box>
       <DrawerItem isOpen={isOpen} onClose={onClose} data={data} />
