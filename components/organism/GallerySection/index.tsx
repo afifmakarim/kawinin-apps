@@ -40,7 +40,7 @@ export default function GallerySection({ data }: any) {
                   style={{
                     borderRadius: "8px",
                     objectFit: "cover",
-                    minHeight: "400px",
+                    minHeight: "500px",
                   }}
                   src={`${process.env.NEXT_PUBLIC_IMAGES}${item.imageUrl}`}
                   width={400}
@@ -65,7 +65,7 @@ export default function GallerySection({ data }: any) {
                     marginTop: "8px",
                     borderRadius: "8px",
                     objectFit: "cover",
-                    minHeight: "100px",
+                    minHeight: "120px",
                   }}
                   src={`${process.env.NEXT_PUBLIC_IMAGES}${item.imageUrl}`}
                   width={200}
