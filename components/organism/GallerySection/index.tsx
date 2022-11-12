@@ -15,7 +15,7 @@ export default function GallerySection({ data }: any) {
   return (
     <>
       <Box sx={{ background: "#F8E1CD" }} p={6} id="gallery">
-        <Fade>
+        <Fade duration={2000}>
           <AttentionSeeker effect="pulse">
             <Heading textAlign="center" mb={8} color="brand.100">
               Gallery

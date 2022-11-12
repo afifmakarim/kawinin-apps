@@ -20,7 +20,10 @@
     "@fontsource/poppins": "^4.5.9",
     "@fontsource/raleway": "^4.5.10",
     "@fontsource/rancho": "^4.5.6",
+    "@react-spring/parallax": "^9.5.5",
+    "@react-spring/web": "^9.5.5",
     "@reduxjs/toolkit": "^1.9.0",
+    "aos": "^3.0.0-beta.6",
     "axios": "^0.27.2",
     "cross-env": "^7.0.3",
     "framer-motion": "^7.2.1",
@@ -32,9 +35,11 @@
     "react-icons": "^4.4.0",
     "react-power-ups": "^2.0.1",
     "react-redux": "^8.0.5",
+    "react-spring": "^9.5.5",
     "swiper": "^8.3.2"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.4",
     "@types/node": "18.7.15",
     "@types/react": "18.0.18",
     "@types/react-dom": "18.0.6",

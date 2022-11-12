@@ -24,7 +24,7 @@ export default function SalamSection({ showNav, data }: any) {
         py={20}
         boxShadow="lg"
       >
-        <Fade>
+        <Fade duration={2000}>
           <Center>
             <VStack gap={4}>
               <Img

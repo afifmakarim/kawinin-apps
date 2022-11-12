@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import CustomPrimaryButton from "../../atoms/Button";
-import { AttentionSeeker, Fade } from "react-awesome-reveal";
+import { AttentionSeeker, Fade, Slide } from "react-awesome-reveal";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
@@ -20,18 +20,18 @@ const API_IMG = process.env.NEXT_PUBLIC_IMAGES;
 
 export default function MainSection({ data }: any) {
   return (
-    <Center
-      id="home"
-      height="100vh"
-      sx={{
-        backgroundColor: "#F8E1CD",
-        backgroundImage: "url('/bg.svg')",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <Fade>
+    <Fade duration={2000}>
+      <Center
+        id="home"
+        height="100vh"
+        sx={{
+          backgroundColor: "#F8E1CD",
+          backgroundImage: "url('/bg.svg')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <AttentionSeeker effect="pulse">
           <VStack gap={6}>
             <Img
@@ -71,7 +71,7 @@ export default function MainSection({ data }: any) {
             </a>
           </VStack>
         </AttentionSeeker>
-      </Fade>
-    </Center>
+      </Center>
+    </Fade>
   );
 }

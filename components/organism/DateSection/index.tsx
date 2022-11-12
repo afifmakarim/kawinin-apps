@@ -7,7 +7,7 @@ import { AttentionSeeker, Fade } from "react-awesome-reveal";
 export default function DateSection({ data }: any) {
   return (
     <Box sx={{ background: "#F8E1CD" }} p={6} id="akad">
-      <Fade>
+      <Fade duration={2000}>
         <AttentionSeeker effect="pulse">
           <Heading textAlign="center" my={8} color="brand.100">
             Save The Date

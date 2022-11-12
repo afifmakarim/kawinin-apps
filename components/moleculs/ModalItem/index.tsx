@@ -13,7 +13,7 @@ import {
   VStack,
   Container,
   Center,
-  // Image,
+  Image,
   Box,
   Stack,
   Heading,
@@ -24,7 +24,7 @@ import { AttentionSeeker, Fade } from "react-awesome-reveal";
 import { FaBookOpen } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
 import { useRouter } from "next/router";
-import Image from "next/image";
+// import Image from "next/image";
 import { useAudio } from "../../hooks/useAudio";
 import { toggleMusic } from "../../../redux/music.slice";
 import { useDispatch } from "react-redux";
@@ -40,6 +40,8 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
     dispatch(toggleMusic());
   };
 
+  const loader =
+    "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
   return (
     <Modal onClose={onClose} size="sm" isOpen={isOpen}>
       <ModalOverlay
@@ -56,7 +58,7 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
             backgroundPosition: "center",
           }}
         >
-          <Fade>
+          <Fade duration={2000}>
             <AttentionSeeker effect="pulse">
               <Center h="100vh" color="brand.100">
                 <VStack gap={6}>
@@ -64,7 +66,7 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                     The Wedding of
                   </Heading>
                   <Stack direction="column" gap={4}>
-                    <Img
+                    <Image
                       boxShadow="2xl"
                       borderRadius="full"
                       objectFit="cover"
@@ -72,6 +74,7 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                         data.weddingPhoto && process.env.NEXT_PUBLIC_IMAGES
                       }${data.weddingPhoto}`}
                       alt={data?.title}
+                      fallbackSrc="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                       boxSize={300}
                       w={300}
                       h={300}

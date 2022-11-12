@@ -8,6 +8,8 @@ import {
   Box,
   Divider,
   Link,
+  Flex,
+  Spacer,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaSearchLocation } from "react-icons/fa";
@@ -42,6 +44,7 @@ export default function AkadSection({
       sx={{ background: "rgba(255, 255, 255, 0.29)" }}
       borderRadius={20}
       py={14}
+      px={8}
       my={8}
       boxShadow="xl"
     >
@@ -50,20 +53,31 @@ export default function AkadSection({
         <Heading fontFamily="Niconne" fontWeight="light">
           {title}
         </Heading>
-        <HStack gap={2} fontFamily="Libre Baskerville" fontSize="2xl">
-          <Text>{hari}</Text>
+        <HStack
+          fontFamily="Libre Baskerville"
+          fontSize="2xl"
+          align="center"
+          spacing={4}
+          w="full"
+        >
+          <Box>
+            <Text>{hari}</Text>
+          </Box>
           <Center height="50px" bgColor="brand.100">
-            <Divider orientation="vertical" bgColor="brand.100" />
+            <Divider orientation="vertical" />
           </Center>
-          <Box textAlign="center" lineHeight={9}>
+          <Box textAlign="center" lineHeight={9} flexBasis="100%">
             <Text fontSize="5xl">{tanggal}</Text>
             <Text fontSize={24}>{tahun}</Text>
           </Box>
           <Center height="50px" bgColor="brand.100">
             <Divider orientation="vertical" />
           </Center>
-          <Text>{bulan}</Text>
+          <Box>
+            <Text>{bulan}</Text>
+          </Box>
         </HStack>
+
         <Text fontWeight="bold" fontSize="sm">
           {jam}
         </Text>

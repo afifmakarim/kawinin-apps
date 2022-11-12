@@ -71,7 +71,7 @@ export default function WishSection() {
     }
   };
   return (
-    <Fade>
+    <Fade duration={2000}>
       <Box
         sx={{
           backgroundColor: "#F8E1CD",

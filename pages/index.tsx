@@ -11,8 +11,8 @@ import WishSection from "../components/organism/WishSection";
 import FloatNav from "../components/moleculs/Navbar/FloatNav";
 import { useIntersection, useInView } from "react-power-ups";
 import { getData } from "../services/data";
-import { WeddingTypes } from "../services/data-types";
 import Head from "next/head";
+import { Slide } from "react-awesome-reveal";
 
 const Home: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -50,17 +50,7 @@ const Home: NextPage = () => {
     galleries: [{ imageUrl: "" }],
   });
 
-  const [navShow, setNavShow] = useState(false);
   const [ref, isInView] = useInView(false);
-
-  // const showNav = useIntersection({
-  //   onEnter: () => setNavShow(false),
-  //   onLeave: () => setNavShow(true),
-  // });
-
-  // const showNav = useIntersection({
-  //   onIntersect: (isIntersecting) => setNavShow(!navShow),
-  // });
 
   const getWeddingData = useCallback(async () => {
     const data = await getData();
