@@ -48,8 +48,9 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
         bg="blackAlpha.300"
         backdropFilter="blur(10px) hue-rotate(90deg)"
       />
-      <ModalContent w="430px" m={0}>
+      <ModalContent w="430px" m={0} h="100vh">
         <ModalBody
+          py={0}
           sx={{
             backgroundColor: "#F8E1CD",
             backgroundImage: "url('/bg.svg')",

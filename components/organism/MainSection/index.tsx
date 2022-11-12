@@ -20,18 +20,18 @@ const API_IMG = process.env.NEXT_PUBLIC_IMAGES;
 
 export default function MainSection({ data }: any) {
   return (
-    <Fade duration={2000}>
-      <Center
-        id="home"
-        height="100vh"
-        sx={{
-          backgroundColor: "#F8E1CD",
-          backgroundImage: "url('/bg.svg')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+    <Center
+      id="home"
+      height="100vh"
+      sx={{
+        backgroundColor: "#F8E1CD",
+        backgroundImage: "url('/bg.svg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      <Fade duration={2000}>
         <AttentionSeeker effect="pulse">
           <VStack gap={6}>
             <Img
@@ -71,7 +71,7 @@ export default function MainSection({ data }: any) {
             </a>
           </VStack>
         </AttentionSeeker>
-      </Center>
-    </Fade>
+      </Fade>
+    </Center>
   );
 }

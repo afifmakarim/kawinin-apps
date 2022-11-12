@@ -28,7 +28,7 @@ export default function DrawerItem({ onClose, isOpen, data }: any) {
       blockScrollOnMount
     >
       <DrawerOverlay />
-      <DrawerContent width="420px" mx="auto" height="95vh !important">
+      <DrawerContent width="420px" mx="auto" height="65vh !important">
         <DrawerHeader
           borderBottomWidth="1px"
           p={2}
@@ -87,12 +87,15 @@ export default function DrawerItem({ onClose, isOpen, data }: any) {
                   </span>
                   <br /> di Tempat
                 </Text>
-                <Box bgColor="white" p={4} borderRadius={20}>
+                <Box bgColor="white" p={2} borderRadius={20}>
                   <Image
-                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
-                    width={150}
-                    height={150}
-                    alt=""
+                    src={
+                      process?.env?.NEXT_PUBLIC_QR ||
+                      "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"
+                    }
+                    width={200}
+                    height={200}
+                    alt="qr-code"
                   />
                 </Box>
               </HStack>

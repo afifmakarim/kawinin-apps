@@ -9,6 +9,7 @@ const nextConfig = {
       "api.qrserver.com",
       "rojokundo.xyz",
       "localhost",
+      "api.veritrans.co.id",
     ],
   },
 };

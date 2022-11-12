@@ -71,18 +71,18 @@ export default function WishSection() {
     }
   };
   return (
-    <Fade duration={2000}>
-      <Box
-        sx={{
-          backgroundColor: "#F8E1CD",
-          backgroundImage: "url('/bg.svg')",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        p={6}
-        id="wish"
-      >
+    <Box
+      sx={{
+        backgroundColor: "#F8E1CD",
+        backgroundImage: "url('/bg.svg')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      p={6}
+      id="wish"
+    >
+      <Fade duration={2000}>
         <AttentionSeeker effect="pulse">
           <Heading textAlign="center" my={8} color="brand.100">
             Wishes
@@ -143,7 +143,7 @@ export default function WishSection() {
             tableData={data}
           />
         </Container>
-      </Box>
-    </Fade>
+      </Fade>
+    </Box>
   );
 }
