@@ -7,6 +7,10 @@ First, setup environment variable :
 NEXT_PUBLIC_API=http://localhost:3000/api/v1/wedding/12
 # base imageUrl
 NEXT_PUBLIC_IMAGES=http://localhost:3000/images/
+# background music audio url
+NEXT_PUBLIC_AUDIO="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/00/e2/d1/00e2d1d1-ee02-7d63-ffe0-84049e9ac2b3/mzaf_4727425759744759901.plus.aac.p.m4a"
+# qr code image url
+NEXT_PUBLIC_QR="https://api.veritrans.co.id/v2/qris/7418cd71-1c00-4a7c-9fe8-d1202bf0b1fd/qr-code"
 ```
 
 Second, run the development server
@@ -88,3 +92,7 @@ Open [http://localhost:3000?to=Afif%20Makarim](http://localhost:3000?to=Afif%20M
 
 ### `Main-2`
 <img src="https://user-images.githubusercontent.com/28927592/194084979-233bb22b-2c66-48c9-bd9f-69f4c9fcf0b3.jpg" alt="Landing" width="300">
+
+## To Do
+- Add unit testing :laughing:
+- Add interactive animation
