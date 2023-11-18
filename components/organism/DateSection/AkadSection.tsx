@@ -4,29 +4,16 @@ import {
   Heading,
   HStack,
   Text,
-  Center,
   Box,
   Divider,
   Link,
   Flex,
-  Spacer,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaSearchLocation } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
+import { AkadProps } from "./akadSection.interfaces";
 
-interface AkadProps {
-  icon: React.ReactNode;
-  title: string;
-  hari: string;
-  tanggal: string;
-  tahun: string;
-  bulan: string;
-  jam: string;
-  lokasi: string;
-  alamat: string;
-  mapLocation: string;
-}
 export default function AkadSection({
   icon,
   title,
@@ -38,7 +25,7 @@ export default function AkadSection({
   lokasi,
   alamat,
   mapLocation,
-}: AkadProps) {
+}: Readonly<AkadProps>) {
   return (
     <Container
       sx={{ background: "rgba(255, 255, 255, 0.29)" }}

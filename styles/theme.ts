@@ -22,15 +22,12 @@ const theme = extendTheme({
   colors: {
     brand: {
       100: "#7c6e63",
-      200: "#",
     },
   },
   fonts,
   textStyles,
 });
 
-// declare a variable for our theme and pass our overrides in the e`xtendTheme` method from chakra
 const customTheme = extendTheme(theme);
 
-// export our theme
 export default customTheme;

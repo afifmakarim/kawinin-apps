@@ -1,15 +1,14 @@
+import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
 
-const useCountdown = (targetDate: any) => {
-  const countDownDate = new Date(targetDate).getTime();
+const useCountdown = (targetDate: Dayjs) => {
+  const countDownDate = targetDate.valueOf();
 
-  const [countDown, setCountDown] = useState(
-    countDownDate - new Date().getTime()
-  );
+  const [countDown, setCountDown] = useState(countDownDate - dayjs().valueOf());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCountDown(countDownDate - new Date().getTime());
+      setCountDown(countDownDate - dayjs().valueOf());
     }, 1000);
 
     return () => clearInterval(interval);
@@ -18,7 +17,7 @@ const useCountdown = (targetDate: any) => {
   return getReturnValues(countDown);
 };
 
-const getReturnValues = (countDown: any) => {
+const getReturnValues = (countDown: number) => {
   // calculate time left
   const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
   const hours = Math.floor(

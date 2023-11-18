@@ -1,7 +1,6 @@
-import type { NextPage } from "next";
 import { useDisclosure } from "@chakra-ui/react";
 import ModalItem from "../components/moleculs/ModalItem";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useCallback } from "react";
 import MainSection from "../components/organism/MainSection";
 import SalamSection from "../components/organism/SalamSection";
 import DateSection from "../components/organism/DateSection";
@@ -9,52 +8,21 @@ import Navbar from "../components/moleculs/Navbar";
 import GallerySection from "../components/organism/GallerySection";
 import WishSection from "../components/organism/WishSection";
 import FloatNav from "../components/moleculs/Navbar/FloatNav";
-import { useIntersection, useInView } from "react-power-ups";
+import { useInView } from "react-power-ups";
 import { getData } from "../services/data";
 import Head from "next/head";
-import { Slide } from "react-awesome-reveal";
+import { useDispatch } from "react-redux";
+import { setData } from "../redux/data.slice";
 
-const Home: NextPage = () => {
+const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [WeddingData, setWeddingData] = useState({
-    title: "",
-    weddingPhoto: "",
-    grooms: {
-      name: "",
-      nick: "",
-      fatherName: "",
-      motherName: "",
-      ig: "",
-      photos: "",
-    },
-    brides: {
-      name: "",
-      nick: "",
-      fatherName: "",
-      motherName: "",
-      ig: "",
-      photos: "",
-    },
-    weddingCeremony: {
-      address: "",
-      addressLocation: "",
-      time: "",
-      dates: { day: "", date: "", month: "", year: "" },
-    },
-    weddingReception: {
-      address: "",
-      addressLocation: "",
-      time: "",
-      dates: { day: "", date: "", month: "", year: "" },
-    },
-    galleries: [{ imageUrl: "" }],
-  });
 
   const [ref, isInView] = useInView(false);
 
+  const dispatch = useDispatch();
   const getWeddingData = useCallback(async () => {
     const data = await getData();
-    setWeddingData(data.data);
+    dispatch(setData(data.data));
   }, [getData]);
 
   useEffect(() => {
@@ -69,18 +37,16 @@ const Home: NextPage = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Wedding Invitation Website" />
       </Head>
-      <FloatNav data={WeddingData} />
-      <ModalItem onClose={onClose} isOpen={isOpen} data={WeddingData} />
+      <FloatNav />
+      <ModalItem onClose={onClose} isOpen={isOpen} />
       <div ref={ref}>
-        <MainSection data={WeddingData} />
+        <MainSection />
       </div>
-      <SalamSection data={WeddingData} />
-      <DateSection data={WeddingData} />
-      <GallerySection data={WeddingData} />
+      <SalamSection />
+      <DateSection />
+      <GallerySection />
       <WishSection />
-      {/* <div style={navShow ? { display: "block" } : { display: "none" }}> */}
       <Navbar isShow={!isInView} />
-      {/* </div> */}
     </>
   );
 };

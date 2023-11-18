@@ -3,8 +3,11 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import AkadSection from "./AkadSection";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
-export default function DateSection({ data }: any) {
+export default function DateSection() {
+  const data = useSelector((state: RootState) => state.data);
   return (
     <Box sx={{ background: "#F8E1CD" }} p={6} id="akad">
       <Fade duration={2000}>

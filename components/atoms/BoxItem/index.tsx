@@ -1,12 +1,7 @@
 import { Box, Text } from "@chakra-ui/react";
-import React from "react";
+import { BoxItemProps } from "./boxItem.interfaces";
 
-interface BoxItemProps {
-  time: number;
-  title: string;
-}
-
-export default function BoxItem({ time = 0, title }: BoxItemProps) {
+export default function BoxItem({ time = 0, title }: Readonly<BoxItemProps>) {
   return (
     <Box
       p="1"

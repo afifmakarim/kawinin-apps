@@ -2,46 +2,42 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
-  ModalCloseButton,
-  Button,
-  Flex,
   Spacer,
   Text,
   VStack,
-  Container,
   Center,
   Image,
-  Box,
   Stack,
   Heading,
-  Img,
-  chakra,
 } from "@chakra-ui/react";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
 import { FaBookOpen } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
 import { useRouter } from "next/router";
-// import Image from "next/image";
 import { useAudio } from "../../hooks/useAudio";
 import { toggleMusic } from "../../../redux/music.slice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
-export default function ModalItem({ onClose, isOpen, data }: any) {
+export default function ModalItem({
+  onClose,
+  isOpen,
+}: {
+  readonly onClose: () => void;
+  readonly isOpen: boolean;
+}) {
+  useAudio();
   const router = useRouter();
   const { to } = router.query;
+  const data = useSelector((state: RootState) => state.data);
   const dispatch = useDispatch();
-  const [] = useAudio();
 
   const handleOpenInvitation = () => {
     onClose();
     dispatch(toggleMusic());
   };
 
-  const loader =
-    "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
   return (
     <Modal onClose={onClose} size="sm" isOpen={isOpen}>
       <ModalOverlay

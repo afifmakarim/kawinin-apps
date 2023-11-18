@@ -4,7 +4,6 @@ import {
   Box,
   Text,
   VStack,
-  Image,
   HStack,
   Heading,
   Link,
@@ -13,9 +12,11 @@ import {
 import { Fade } from "react-awesome-reveal";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import CustomPrimaryButton from "../../atoms/Button";
-// import Image from "next/image";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
-export default function SalamSection({ showNav, data }: any) {
+export default function SalamSection({ showNav }: any) {
+  const data = useSelector((state: RootState) => state.data);
   return (
     <Box sx={{ background: "#F8E1CD" }} p={6} id="salam" ref={showNav}>
       <Container
@@ -52,15 +53,15 @@ export default function SalamSection({ showNav, data }: any) {
                 <VStack>
                   <Img
                     src={`${
-                      data.brides.photos && process.env.NEXT_PUBLIC_IMAGES
-                    }${data.brides.photos}`}
+                      data?.brides?.photos && process.env.NEXT_PUBLIC_IMAGES
+                    }${data?.brides?.photos}`}
                     borderRadius="100%"
                     shadow="xl"
                     width="80px"
                     height="80px"
                     objectFit="cover"
                   />
-                  <Heading size="md">{data.brides?.nick}</Heading>
+                  <Heading size="md">{data?.brides?.nick}</Heading>
                 </VStack>
                 <FaHandHoldingHeart
                   style={{ color: "#7c6e63", fontSize: "1.4rem" }}
@@ -68,15 +69,15 @@ export default function SalamSection({ showNav, data }: any) {
                 <VStack>
                   <Img
                     src={`${
-                      data.grooms.photos && process.env.NEXT_PUBLIC_IMAGES
-                    }${data.grooms.photos}`}
+                      data?.grooms?.photos && process.env.NEXT_PUBLIC_IMAGES
+                    }${data?.grooms?.photos}`}
                     borderRadius="100%"
                     shadow="xl"
                     width="80px"
                     height="80px"
                     objectFit="cover"
                   />
-                  <Heading size="md">{data.grooms?.nick}</Heading>
+                  <Heading size="md">{data?.grooms?.nick}</Heading>
                 </VStack>
               </HStack>
               <VStack>

@@ -1,17 +1,12 @@
 import { Button, Flex } from "@chakra-ui/react";
-import React from "react";
-interface Props {
-  title: string;
-  size: string;
-  onClick?: () => void;
-  icon?: React.ReactNode;
-}
+import { ButtonProps } from "./button.interfaces";
+
 export default function CustomPrimaryButton({
   title,
   onClick,
   size,
   icon,
-}: Props) {
+}: Readonly<ButtonProps>) {
   return (
     <Button
       size={size}

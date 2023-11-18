@@ -15,31 +15,25 @@ import CustomPrimaryButton from "../../atoms/Button";
 import WishCount from "../../moleculs/WishCount";
 import WishListItem from "../../moleculs/WishListItem";
 import Paginate from "./Paginate";
-
-interface WishPropsTypes {
-  name: string;
-  pesan: string;
-  timestamp: string;
-  absensi?: "hadir" | "tidakHadir" | "ragu";
-}
+import { WishPropsTypes } from "./wishSection.interfaces";
 
 export default function WishSection() {
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<WishPropsTypes[]>([]);
 
   const [absensi, setAbsensi] = useState("");
   const [name, setName] = useState("");
   const [pesan, setPesan] = useState("");
 
   const totalAbsent = () => {
-    const tidakHadirTotal = data.filter((item: any) => {
+    const tidakHadirTotal = data.filter((item) => {
       return item.absensi == "tidakHadir";
     });
 
-    const hadirTotal = data.filter((item: any) => {
+    const hadirTotal = data.filter((item) => {
       return item.absensi == "hadir";
     });
 
-    const raguTotal = data.filter((item: any) => {
+    const raguTotal = data.filter((item) => {
       return item.absensi == "ragu";
     });
     return [tidakHadirTotal.length, hadirTotal.length, raguTotal.length];
@@ -47,9 +41,8 @@ export default function WishSection() {
 
   const [tidakHadirTotal, hadirTotal, raguTotal] = totalAbsent();
 
-  // pagination config
   const [number, setNumber] = useState(1);
-  const [postPerPage] = useState(3);
+  const postPerPage = 3;
 
   const lastPost = number * postPerPage;
   const firstPost = lastPost - postPerPage;
@@ -63,13 +56,13 @@ export default function WishSection() {
         { name, timestamp: new Date().toLocaleString(), pesan, absensi },
       ]);
 
-      //clear the textarea
       setName("");
       setPesan("");
     } else {
       alert("Pesan masih kosong");
     }
   };
+
   return (
     <Box
       sx={{
@@ -128,9 +121,9 @@ export default function WishSection() {
             <CustomPrimaryButton size="sm" title="Submit" onClick={onSubmit} />
           </Stack>
           <Divider borderColor="gray.500" my={4} />
-          {wishDataList.map((item: WishPropsTypes, idx: any) => (
+          {wishDataList.map((item) => (
             <WishListItem
-              key={idx}
+              key={item.name}
               name={item.name}
               timestamp={item.timestamp}
               pesan={item.pesan}

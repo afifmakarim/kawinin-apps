@@ -8,17 +8,18 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import CustomPrimaryButton from "../../atoms/Button";
-import { AttentionSeeker, Fade, Slide } from "react-awesome-reveal";
+import { AttentionSeeker, Fade } from "react-awesome-reveal";
 import dynamic from "next/dynamic";
-import Link from "next/link";
-import Image from "next/image";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 const TimeBoxWithNoSSR = dynamic(() => import("../../moleculs/TimeBox"), {
   ssr: false,
 });
 const API_IMG = process.env.NEXT_PUBLIC_IMAGES;
 
-export default function MainSection({ data }: any) {
+export default function MainSection() {
+  const data = useSelector((state: RootState) => state.data);
   return (
     <Center
       id="home"
@@ -53,7 +54,7 @@ export default function MainSection({ data }: any) {
                 dan kami ingin Anda menjadi bagian dari hari <br /> istimewa
                 kami!
               </Text>
-              <TimeBoxWithNoSSR data={data.weddingCeremony.dates.fastTime} />
+              <TimeBoxWithNoSSR data={data?.weddingCeremony?.dates?.fastTime} />
               <Text
                 align="center"
                 fontSize="xs"
