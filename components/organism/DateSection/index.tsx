@@ -3,8 +3,12 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import AkadSection from "./AkadSection";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
+import { useDataStore } from "../../../store/data.store";
+import dayjs from "dayjs";
 
-export default function DateSection({ data }: any) {
+export default function DateSection() {
+  const data = useDataStore((state) => state.data);
+
   return (
     <Box sx={{ background: "#F8E1CD" }} p={6} id="akad">
       <Fade duration={2000}>
@@ -21,14 +25,14 @@ export default function DateSection({ data }: any) {
             />
           }
           title="Akad Nikah"
-          hari={data.weddingCeremony?.dates.day}
-          tanggal={data.weddingCeremony?.dates.date}
-          tahun={data.weddingCeremony?.dates.year}
-          bulan={data.weddingCeremony?.dates.month}
+          hari={dayjs(data.weddingCeremony?.dates).format("dddd")}
+          tanggal={dayjs(data.weddingCeremony?.dates).format("DD")}
+          tahun={dayjs(data.weddingCeremony?.dates).format("YYYY")}
+          bulan={dayjs(data.weddingCeremony?.dates).format("MMMM")}
           jam={data.weddingCeremony?.time}
           lokasi={data.weddingCeremony?.addressLocation}
           alamat={data.weddingCeremony?.address}
-          mapLocation={data.weddingReception?.mapLocation}
+          mapLocation={data.weddingReception?.addressLocation}
         />
         <AkadSection
           icon={
@@ -37,14 +41,14 @@ export default function DateSection({ data }: any) {
             />
           }
           title="Resepsi"
-          hari={data.weddingReception?.dates.day}
-          tanggal={data.weddingReception?.dates.date}
-          tahun={data.weddingReception?.dates.year}
-          bulan={data.weddingReception?.dates.month}
+          hari={dayjs(data.weddingReception?.dates).format("dddd")}
+          tanggal={dayjs(data.weddingReception?.dates).format("DD")}
+          tahun={dayjs(data.weddingReception?.dates).format("YYYY")}
+          bulan={dayjs(data.weddingReception?.dates).format("MMMM")}
           jam={data.weddingReception?.time}
           lokasi={data.weddingReception?.addressLocation}
           alamat={data.weddingReception?.address}
-          mapLocation={data.weddingReception?.mapLocation}
+          mapLocation={data.weddingReception?.addressLocation}
         />
       </Fade>
     </Box>

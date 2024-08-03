@@ -1,5 +1,4 @@
 import { Box, Container, Flex, Fade } from "@chakra-ui/react";
-import React, { useState, useEffect, useRef } from "react";
 import {
   FaCalendarAlt,
   FaHandHoldingHeart,
@@ -8,7 +7,7 @@ import {
 } from "react-icons/fa";
 import NavbarItem from "./NavbarItem";
 
-export default function Navbar({ isShow }: any) {
+export default function Navbar({ isShow }: Readonly<{ isShow: boolean }>) {
   return (
     <Fade in={isShow}>
       <Container transitionDuration="800ms">
@@ -23,17 +22,17 @@ export default function Navbar({ isShow }: any) {
           pos="fixed"
           zIndex={9}
           bottom="3"
-          // width="430px"
-          //left="41.5%"
           left="50%"
           transform="translate(-50%, 0)"
         >
           <Flex gap={2}>
-            <NavbarItem icon={<FaHome />} href="#home" />
-            {/* <NavbarItem icon={<FaPeriscope />} href="#akad" /> */}
-            <NavbarItem icon={<FaCalendarAlt />} href="#akad" />
-            <NavbarItem icon={<FaPhotoVideo />} href="#gallery" />
-            <NavbarItem icon={<FaHandHoldingHeart />} href="#wish" />
+            <NavbarItem icon={<FaHome color="white" />} href="#home" />
+            <NavbarItem icon={<FaCalendarAlt color="white" />} href="#akad" />
+            <NavbarItem icon={<FaPhotoVideo color="white" />} href="#gallery" />
+            <NavbarItem
+              icon={<FaHandHoldingHeart color="white" />}
+              href="#wish"
+            />
           </Flex>
         </Box>
       </Container>

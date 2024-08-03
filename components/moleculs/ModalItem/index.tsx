@@ -2,46 +2,35 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
-  ModalFooter,
   ModalBody,
-  ModalCloseButton,
-  Button,
-  Flex,
   Spacer,
   Text,
   VStack,
-  Container,
   Center,
   Image,
-  Box,
   Stack,
   Heading,
-  Img,
-  chakra,
 } from "@chakra-ui/react";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
 import { FaBookOpen } from "react-icons/fa";
-import CustomPrimaryButton from "../../atoms/Button";
-import { useRouter } from "next/router";
-// import Image from "next/image";
-import { useAudio } from "../../hooks/useAudio";
-import { toggleMusic } from "../../../redux/music.slice";
-import { useDispatch } from "react-redux";
+import CustomPrimaryButton from "@/components/atoms/Button";
+import { useSearchParams } from "next/navigation";
+import { useDataStore } from "@/store/data.store";
+import { useMusicStore } from "@/store/music.store";
+import { useAudio } from "@/components/hooks/useAudio";
 
-export default function ModalItem({ onClose, isOpen, data }: any) {
-  const router = useRouter();
-  const { to } = router.query;
-  const dispatch = useDispatch();
-  const [] = useAudio();
+export default function ModalItem({ onClose, isOpen }: any) {
+  const searchParams = useSearchParams();
+  const to = searchParams.get("to");
+  const data = useDataStore((state) => state.data);
+  const music = useMusicStore((state) => state);
 
   const handleOpenInvitation = () => {
     onClose();
-    dispatch(toggleMusic());
+    music.setToggleMusic(true);
   };
 
-  const loader =
-    "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+  useAudio();
   return (
     <Modal onClose={onClose} size="sm" isOpen={isOpen}>
       <ModalOverlay
@@ -71,9 +60,7 @@ export default function ModalItem({ onClose, isOpen, data }: any) {
                       boxShadow="2xl"
                       borderRadius="full"
                       objectFit="cover"
-                      src={`${
-                        data.weddingPhoto && process.env.NEXT_PUBLIC_IMAGES
-                      }${data.weddingPhoto}`}
+                      src={data?.weddingPhoto}
                       alt={data?.title}
                       fallbackSrc="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
                       boxSize={300}

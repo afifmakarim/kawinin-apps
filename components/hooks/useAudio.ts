@@ -1,34 +1,32 @@
-import { useState, useRef, useEffect, useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { stopMusic } from "../../redux/music.slice";
+import { useState, useRef, useEffect } from "react";
+import { useMusicStore } from "@/store/music.store";
 
-const useAudio = () => {
-  const music = useSelector((state: any) => state.music);
-  const dispatch = useDispatch();
+export const useAudio = () => {
+  const { isPlay, stopMusic, setToggleMusic } = useMusicStore((state) => state);
 
-  const url = process?.env?.NEXT_PUBLIC_AUDIO!;
+  const url = process?.env?.NEXT_PUBLIC_AUDIO ?? "./rc.mp3";
 
   const musicPlayers = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== "undefined" ? new Audio(url!) : undefined
   );
 
   const [audio] = useState(musicPlayers);
-  const [playing, setPlaying] = useState(false);
 
-  const toggle = () => setPlaying(!playing);
-
-  useEffect(() => {
-    music.isPlay ? audio.current?.play() : audio.current?.pause();
-  }, [music.isPlay]);
+  const toggle = () => setToggleMusic(!isPlay);
 
   useEffect(() => {
-    audio.current?.addEventListener("ended", () => dispatch(stopMusic()));
+    isPlay ? audio.current?.play() : audio.current?.pause();
+  }, [isPlay]);
+
+  useEffect(() => {
+    audio.current?.addEventListener("ended", () => stopMusic());
     return () => {
-      audio.current?.removeEventListener("ended", () => dispatch(stopMusic()));
+      audio.current?.removeEventListener("ended", () => stopMusic());
     };
   }, []);
 
-  return [playing, toggle] as const;
+  return {
+    toggle,
+    isPlay,
+  };
 };
-
-export { useAudio };

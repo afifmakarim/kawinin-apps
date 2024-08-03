@@ -1,11 +1,10 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import React, { useEffect } from "react";
 import BoxItem from "../../atoms/BoxItem";
 import { useCountdown } from "../../hooks/useCountDown";
+import dayjs from "dayjs";
 
-export default function TimeBox(props: any) {
-  const dates = new Date(props.data).getTime() / 1000.0;
-  const weddingDay = parseInt(dates + "000");
+export default function TimeBox({ data }: Readonly<{ data: Date }>) {
+  const weddingDay = dayjs(data).valueOf();
   const [days, hours, minutes, seconds] = useCountdown(weddingDay);
 
   return (

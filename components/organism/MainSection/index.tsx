@@ -7,18 +7,22 @@ import {
   Img,
 } from "@chakra-ui/react";
 import React from "react";
-import CustomPrimaryButton from "../../atoms/Button";
-import { AttentionSeeker, Fade, Slide } from "react-awesome-reveal";
+import CustomPrimaryButton from "@/components/atoms/Button";
+import { AttentionSeeker, Fade } from "react-awesome-reveal";
 import dynamic from "next/dynamic";
-import Link from "next/link";
-import Image from "next/image";
+import { useDataStore } from "@/store/data.store";
+import dayjs from "dayjs";
 
-const TimeBoxWithNoSSR = dynamic(() => import("../../moleculs/TimeBox"), {
-  ssr: false,
-});
-const API_IMG = process.env.NEXT_PUBLIC_IMAGES;
+const TimeBoxWithNoSSR = dynamic(
+  () => import("@/components/moleculs/TimeBox"),
+  {
+    ssr: false,
+  }
+);
 
-export default function MainSection({ data }: any) {
+export default function MainSection() {
+  const data = useDataStore((state) => state.data);
+
   return (
     <Center
       id="home"
@@ -37,11 +41,9 @@ export default function MainSection({ data }: any) {
             <Img
               boxShadow="2xl"
               borderRadius="full"
-              src={`${data.weddingPhoto && API_IMG}${data.weddingPhoto}`}
+              src={data.weddingPhoto}
               alt={data?.title}
               objectFit="cover"
-              // width={250}
-              // height={250}
               boxSize={250}
               sizes="50"
               loading="lazy"
@@ -53,17 +55,14 @@ export default function MainSection({ data }: any) {
                 dan kami ingin Anda menjadi bagian dari hari <br /> istimewa
                 kami!
               </Text>
-              <TimeBoxWithNoSSR data={data.weddingCeremony.dates.fastTime} />
+              <TimeBoxWithNoSSR data={data.weddingCeremony.date} />
               <Text
                 align="center"
                 fontSize="xs"
                 color="black"
                 fontWeight="bold"
               >
-                {data.weddingCeremony?.dates.day},{" "}
-                {data.weddingCeremony?.dates.date}{" "}
-                {data.weddingCeremony?.dates.month}{" "}
-                {data.weddingCeremony?.dates.year}
+                {dayjs(data.weddingCeremony.date).format("dddd, DD MMMM YYYY")}
               </Text>
             </Container>
             <a href={"#akad"}>

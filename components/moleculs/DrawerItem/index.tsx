@@ -1,3 +1,4 @@
+"use client";
 import {
   Drawer,
   DrawerContent,
@@ -14,11 +15,14 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
+import { useDataStore } from "../../../store/data.store";
+import dayjs from "dayjs";
 
-export default function DrawerItem({ onClose, isOpen, data }: any) {
-  const router = useRouter();
-  const { to } = router.query;
+export default function DrawerItem({ onClose, isOpen }: any) {
+  const searchParams = useSearchParams();
+  const to = searchParams.get("to");
+  const data = useDataStore((state) => state.data);
 
   return (
     <Drawer
@@ -50,12 +54,11 @@ export default function DrawerItem({ onClose, isOpen, data }: any) {
             >
               <VStack h="100%" color="white">
                 <Box marginTop="auto" textAlign="center">
-                  <Text fontWeight="bold">The Wedding of {data.title}</Text>
+                  <Text fontWeight="bold">The Wedding of {data?.title}</Text>
                   <Text fontSize="xs" pb={2}>
-                    {data.weddingCeremony?.dates.day},{" "}
-                    {data.weddingCeremony?.dates.date}{" "}
-                    {data.weddingCeremony?.dates.month}{" "}
-                    {data.weddingCeremony?.dates.year}
+                    {dayjs(data.weddingCeremony.dates).format(
+                      "dddd, DD MMMM YYYY"
+                    )}
                   </Text>
                 </Box>
               </VStack>
@@ -70,13 +73,10 @@ export default function DrawerItem({ onClose, isOpen, data }: any) {
             >
               <Text>Acara :</Text>
               <Text fontSize="md">
-                {data.weddingCeremony?.dates.day},{" "}
-                {data.weddingCeremony?.dates.date}{" "}
-                {data.weddingCeremony?.dates.month}{" "}
-                {data.weddingCeremony?.dates.year}
+                {dayjs(data.weddingCeremony.dates).format("dddd, DD MMMM YYYY")}
               </Text>
               <Text fontWeight="light" fontSize="xs">
-                {data.weddingCeremony?.time}
+                {data?.weddingCeremony?.time}
               </Text>
               <HStack my={6}>
                 <Text flexShrink={0} flexBasis={0} flexGrow="1">

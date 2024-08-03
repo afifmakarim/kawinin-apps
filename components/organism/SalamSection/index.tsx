@@ -4,7 +4,6 @@ import {
   Box,
   Text,
   VStack,
-  Image,
   HStack,
   Heading,
   Link,
@@ -12,12 +11,14 @@ import {
 } from "@chakra-ui/react";
 import { Fade } from "react-awesome-reveal";
 import { FaHandHoldingHeart } from "react-icons/fa";
-import CustomPrimaryButton from "../../atoms/Button";
-// import Image from "next/image";
+import CustomPrimaryButton from "@/components/atoms/Button";
+import { useDataStore } from "@/store/data.store";
 
-export default function SalamSection({ showNav, data }: any) {
+export default function SalamSection() {
+  const data = useDataStore((state) => state.data);
+
   return (
-    <Box sx={{ background: "#F8E1CD" }} p={6} id="salam" ref={showNav}>
+    <Box sx={{ background: "#F8E1CD" }} p={6} id="salam">
       <Container
         sx={{ background: "rgba(255, 255, 255, 0.29)" }}
         borderRadius={20}
@@ -51,9 +52,7 @@ export default function SalamSection({ showNav, data }: any) {
               <HStack gap={2}>
                 <VStack>
                   <Img
-                    src={`${
-                      data.brides.photos && process.env.NEXT_PUBLIC_IMAGES
-                    }${data.brides.photos}`}
+                    src={data.brides.photo}
                     borderRadius="100%"
                     shadow="xl"
                     width="80px"
@@ -67,9 +66,7 @@ export default function SalamSection({ showNav, data }: any) {
                 />
                 <VStack>
                   <Img
-                    src={`${
-                      data.grooms.photos && process.env.NEXT_PUBLIC_IMAGES
-                    }${data.grooms.photos}`}
+                    src={data.grooms.photo}
                     borderRadius="100%"
                     shadow="xl"
                     width="80px"
@@ -88,12 +85,12 @@ export default function SalamSection({ showNav, data }: any) {
                   {data.brides?.motherName}
                 </Text>
                 <Link
-                  href={`https://www.instagram.com/${data.brides?.ig}/`}
+                  href={`https://www.instagram.com/${data.brides?.instagram}/`}
                   isExternal
                 >
                   <CustomPrimaryButton
                     size="xs"
-                    title={`@${data.brides?.ig}`}
+                    title={`@${data.brides?.instagram}`}
                   />
                 </Link>
               </VStack>
@@ -107,12 +104,12 @@ export default function SalamSection({ showNav, data }: any) {
                   {data.grooms?.motherName}
                 </Text>
                 <Link
-                  href={`https://www.instagram.com/${data.grooms?.ig}/`}
+                  href={`https://www.instagram.com/${data.grooms?.instagram}/`}
                   isExternal
                 >
                   <CustomPrimaryButton
                     size="xs"
-                    title={`@${data.grooms?.ig}`}
+                    title={`@${data.grooms?.instagram}`}
                   />
                 </Link>
               </VStack>

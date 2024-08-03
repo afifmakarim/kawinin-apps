@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum status {
+  HADIR
+  TIDAK_HADIR
+  TENTATIF
+}
+
+model weddings {
+  id                String          @id @default(uuid())
+  title             String
+  image             String
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  weddingCeremony   weddingCeremony @relation(fields: [weddingCeremonyId], references: [id])
+  weddingParty      weddingParty    @relation(fields: [weddingPartyId], references: [id])
+  galleries         galleries[]
+  testimonials      testimonials[]
+  brides            brides          @relation(fields: [bridesId], references: [id])
+  bridesId          String
+  grooms            grooms          @relation(fields: [groomsId], references: [id])
+  groomsId          String
+  weddingCeremonyId String
+  weddingPartyId    String
+}
+
+model brides {
+  id         String     @id @default(uuid())
+  name       String
+  nickname   String
+  fatherName String
+  motherName String
+  instagram  String
+  photo      String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  weddings   weddings[]
+}
+
+model grooms {
+  id         String     @id @default(uuid())
+  name       String
+  nickname   String
+  fatherName String
+  motherName String
+  instagram  String
+  photo      String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  weddings   weddings[]
+}
+
+model weddingCeremony {
+  id              String   @id @default(uuid())
+  address         String
+  addressLocation String
+  mapLocation     String
+  date            DateTime
+
+  weddings weddings[]
+}
+
+model weddingParty {
+  id              String   @id @default(uuid())
+  address         String
+  addressLocation String
+  mapLocation     String
+  date            DateTime
+
+  weddings weddings[]
+}
+
+model galleries {
+  id         String    @id @default(uuid())
+  image      String
+  weddings   weddings? @relation(fields: [weddingsId], references: [id])
+  weddingsId String?
+}
+
+model testimonials {
+  id         Int       @id @default(autoincrement())
+  name       String
+  message    String
+  status     status
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  weddings   weddings? @relation(fields: [weddingsId], references: [id])
+  weddingsId String?
+}
