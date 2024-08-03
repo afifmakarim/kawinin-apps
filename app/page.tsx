@@ -15,7 +15,9 @@ import { useInView } from "react-power-ups";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 
-const Navbar = dynamic(() => import("@/components/moleculs/Navbar"));
+const Navbar = dynamic(() => import("@/components/moleculs/Navbar"), {
+  ssr: false,
+});
 
 export default function HomePage() {
   const router = useRouter();

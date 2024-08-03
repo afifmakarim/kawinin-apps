@@ -4,12 +4,10 @@ import {
   Heading,
   HStack,
   Text,
-  Center,
   Box,
   Divider,
   Link,
   Flex,
-  Spacer,
 } from "@chakra-ui/react";
 import React from "react";
 import { FaSearchLocation } from "react-icons/fa";
@@ -38,7 +36,7 @@ export default function AkadSection({
   lokasi,
   alamat,
   mapLocation,
-}: AkadProps) {
+}: Readonly<AkadProps>) {
   return (
     <Container
       sx={{ background: "rgba(255, 255, 255, 0.29)" }}
@@ -80,7 +78,7 @@ export default function AkadSection({
         </HStack>
 
         <Text fontWeight="bold" fontSize="sm">
-          {jam}
+          Pukul {jam} - Selesai
         </Text>
         <Text fontWeight="bold" fontSize="sm">
           Alamat

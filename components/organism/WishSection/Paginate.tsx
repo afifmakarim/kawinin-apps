@@ -1,10 +1,4 @@
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Tooltip,
-  Center,
-} from "@chakra-ui/react";
+import { Button, ButtonGroup, Container, Center } from "@chakra-ui/react";
 
 export default function Paginate({
   number,
@@ -16,7 +10,7 @@ export default function Paginate({
     setNumber(pageNumber);
   };
 
-  const pageNumber = [];
+  const pageNumber: JSX.Element[] = [];
 
   // getting page numbers dynamically
   for (let i = 1; i <= Math.ceil(tableData.length / postPerPage); i++) {
@@ -51,27 +45,25 @@ export default function Paginate({
   };
 
   return (
-    <>
-      <Container>
-        <Center>
-          {/* <Pagination>
+    <Container>
+      <Center>
+        {/* <Pagination>
           <Pagination.Prev onClick={Prev} />
           {pageNumber}
           <Pagination.Next onClick={Next} />
         </Pagination> */}
-          {pageNumber.length > 0 && (
-            <ButtonGroup colorScheme="blackAlpha" isAttached>
-              <Button onClick={Prev} size="xs">
-                {"<"}
-              </Button>
-              {pageNumber}
-              <Button onClick={Next} size="xs">
-                {">"}
-              </Button>
-            </ButtonGroup>
-          )}
-        </Center>
-      </Container>
-    </>
+        {pageNumber.length > 0 && (
+          <ButtonGroup colorScheme="blackAlpha" isAttached>
+            <Button onClick={Prev} size="xs">
+              {"<"}
+            </Button>
+            {pageNumber}
+            <Button onClick={Next} size="xs">
+              {">"}
+            </Button>
+          </ButtonGroup>
+        )}
+      </Center>
+    </Container>
   );
 }

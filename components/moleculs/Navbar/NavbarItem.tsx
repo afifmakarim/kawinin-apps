@@ -1,6 +1,5 @@
 import { Button } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/react";
-import NextLink from "next/link";
 
 interface NavbarItemProps {
   icon: React.ReactNode;

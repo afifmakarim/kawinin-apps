@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import LayoutProvider from "../provider/provider";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Wedding Invitation",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LayoutProvider>{children} </LayoutProvider>
+        <LayoutProvider>
+          <Suspense>{children}</Suspense>
+        </LayoutProvider>
       </body>
     </html>
   );

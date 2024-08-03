@@ -19,7 +19,7 @@ interface Gallery {
   imageUrl: string;
 }
 
-interface WeddingDetails {
+export interface WeddingDetails {
   title: string;
   weddingPhoto: string;
   grooms: Person;

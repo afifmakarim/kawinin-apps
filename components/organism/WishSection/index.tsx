@@ -11,9 +11,9 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
-import CustomPrimaryButton from "../../atoms/Button";
-import WishCount from "../../moleculs/WishCount";
-import WishListItem from "../../moleculs/WishListItem";
+import CustomPrimaryButton from "@/components/atoms/Button";
+import WishCount from "@/components/moleculs/WishCount";
+import WishListItem from "@/components/moleculs/WishListItem";
 import Paginate from "./Paginate";
 
 interface WishPropsTypes {

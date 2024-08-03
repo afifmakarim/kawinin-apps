@@ -3,7 +3,7 @@ import { FaHandHoldingHeart } from "react-icons/fa";
 import AkadSection from "./AkadSection";
 import { GiBigDiamondRing } from "react-icons/gi";
 import { AttentionSeeker, Fade } from "react-awesome-reveal";
-import { useDataStore } from "../../../store/data.store";
+import { useDataStore } from "@/store/data.store";
 import dayjs from "dayjs";
 
 export default function DateSection() {
@@ -25,11 +25,11 @@ export default function DateSection() {
             />
           }
           title="Akad Nikah"
-          hari={dayjs(data.weddingCeremony?.dates).format("dddd")}
-          tanggal={dayjs(data.weddingCeremony?.dates).format("DD")}
-          tahun={dayjs(data.weddingCeremony?.dates).format("YYYY")}
-          bulan={dayjs(data.weddingCeremony?.dates).format("MMMM")}
-          jam={data.weddingCeremony?.time}
+          hari={dayjs(data.weddingCeremony?.date).format("dddd")}
+          tanggal={dayjs(data.weddingCeremony?.date).format("DD")}
+          tahun={dayjs(data.weddingCeremony?.date).format("YYYY")}
+          bulan={dayjs(data.weddingCeremony?.date).format("MMMM")}
+          jam={dayjs(data.weddingCeremony?.date).format("HH:mm")}
           lokasi={data.weddingCeremony?.addressLocation}
           alamat={data.weddingCeremony?.address}
           mapLocation={data.weddingReception?.addressLocation}
@@ -41,11 +41,11 @@ export default function DateSection() {
             />
           }
           title="Resepsi"
-          hari={dayjs(data.weddingReception?.dates).format("dddd")}
-          tanggal={dayjs(data.weddingReception?.dates).format("DD")}
-          tahun={dayjs(data.weddingReception?.dates).format("YYYY")}
-          bulan={dayjs(data.weddingReception?.dates).format("MMMM")}
-          jam={data.weddingReception?.time}
+          hari={dayjs(data.weddingReception?.date).format("dddd")}
+          tanggal={dayjs(data.weddingReception?.date).format("DD")}
+          tahun={dayjs(data.weddingReception?.date).format("YYYY")}
+          bulan={dayjs(data.weddingReception?.date).format("MMMM")}
+          jam={dayjs(data.weddingReception?.date).format("HH:mm")}
           lokasi={data.weddingReception?.addressLocation}
           alamat={data.weddingReception?.address}
           mapLocation={data.weddingReception?.addressLocation}

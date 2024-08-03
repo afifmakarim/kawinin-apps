@@ -63,7 +63,7 @@ export async function getWeddings() {
     },
   });
 
-  const mappingData = data.map((wedding) => {
+  const mappingData = data?.map((wedding) => {
     return {
       title: wedding.title,
       weddingPhoto: wedding.image,

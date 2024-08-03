@@ -1,12 +1,4 @@
-import {
-  Box,
-  Avatar,
-  HStack,
-  Text,
-  VStack,
-  Flex,
-  Divider,
-} from "@chakra-ui/react";
+import { Avatar, HStack, Text, VStack, Flex, Divider } from "@chakra-ui/react";
 import React from "react";
 
 interface WishPropsTypes {
